@@ -1,0 +1,251 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Gold and Black Theme - OKLCH Color System */
+    --background: oklch(0.12 0.02 60);
+    --foreground: oklch(1.0 0 0); /* Pure white for maximum readability */
+
+    --card: oklch(0.15 0.02 60);
+    --card-foreground: oklch(1.0 0 0); /* Pure white */
+
+    --popover: oklch(0.12 0.02 60);
+    --popover-foreground: oklch(1.0 0 0); /* Pure white */
+
+    --primary: oklch(0.85 0.15 85);
+    --primary-foreground: oklch(0.12 0.02 60);
+
+    --secondary: oklch(0.25 0.03 60);
+    --secondary-foreground: oklch(1.0 0 0); /* Pure white */
+
+    --muted: oklch(0.25 0.03 60);
+    --muted-foreground: oklch(0.75 0.05 60); /* Lighter for better contrast */
+
+    --accent: oklch(0.85 0.15 85);
+    --accent-foreground: oklch(0.12 0.02 60);
+
+    --destructive: oklch(0.55 0.22 25);
+    --destructive-foreground: oklch(1.0 0 0); /* Pure white */
+
+    --border: oklch(0.25 0.05 85);
+    --input: oklch(0.25 0.05 85);
+    --ring: oklch(0.85 0.15 85);
+
+    --radius: 0.5rem;
+
+    /* Custom Gold Colors */
+    --gold: oklch(0.85 0.15 85);
+    --gold-light: oklch(0.90 0.12 90);
+    --gold-dark: oklch(0.70 0.18 80);
+  }
+
+  .dark {
+    --background: oklch(0.12 0.02 60);
+    --foreground: oklch(1.0 0 0); /* Pure white */
+
+    --card: oklch(0.15 0.02 60);
+    --card-foreground: oklch(1.0 0 0); /* Pure white */
+
+    --popover: oklch(0.12 0.02 60);
+    --popover-foreground: oklch(1.0 0 0); /* Pure white */
+
+    --primary: oklch(0.85 0.15 85);
+    --primary-foreground: oklch(0.12 0.02 60);
+
+    --secondary: oklch(0.25 0.03 60);
+    --secondary-foreground: oklch(1.0 0 0); /* Pure white */
+
+    --muted: oklch(0.25 0.03 60);
+    --muted-foreground: oklch(0.75 0.05 60); /* Lighter for better contrast */
+
+    --accent: oklch(0.85 0.15 85);
+    --accent-foreground: oklch(0.12 0.02 60);
+
+    --destructive: oklch(0.55 0.22 25);
+    --destructive-foreground: oklch(1.0 0 0); /* Pure white */
+
+    --border: oklch(0.25 0.05 85);
+    --input: oklch(0.25 0.05 85);
+    --ring: oklch(0.85 0.15 85);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Custom Animations */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translateY(-20px) translateX(10px);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-40px) translateX(-10px);
+    opacity: 0.9;
+  }
+  75% {
+    transform: translateY(-20px) translateX(10px);
+    opacity: 0.6;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(12px);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.6);
+  }
+}
+
+.animate-float {
+  animation: float linear infinite;
+}
+
+.animate-shimmer {
+  background-size: 2000px 100%;
+  animation: shimmer 3s linear infinite;
+}
+
+.animate-scroll {
+  animation: scroll 2s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: oklch(0.12 0.02 60);
+}
+
+::-webkit-scrollbar-thumb {
+  background: oklch(0.85 0.15 85);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.90 0.12 90);
+}
+
+/* Prose Styling for Articles */
+.prose-gold {
+  --tw-prose-body: oklch(0.95 0.02 60);
+  --tw-prose-headings: oklch(0.85 0.15 85);
+  --tw-prose-links: oklch(0.85 0.15 85);
+  --tw-prose-bold: oklch(1.0 0 0);
+  --tw-prose-quotes: oklch(0.85 0.15 85);
+  --tw-prose-code: oklch(0.85 0.15 85);
+}
+
+.prose-gold h1,
+.prose-gold h2,
+.prose-gold h3,
+.prose-gold h4 {
+  color: oklch(0.85 0.15 85);
+  font-weight: 700;
+  margin-top: 1.5em;
+  margin-bottom: 0.75em;
+}
+
+.prose-gold p {
+  margin-bottom: 1em;
+  line-height: 1.75;
+  color: oklch(0.95 0.02 60);
+}
+
+.prose-gold strong {
+  color: oklch(1.0 0 0);
+  font-weight: 600;
+}
+
+.prose-gold a {
+  color: oklch(0.85 0.15 85);
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.prose-gold a:hover {
+  color: oklch(0.90 0.12 90);
+}
+
+/* Ensure all text elements have proper contrast */
+h1, h2, h3, h4, h5, h6 {
+  color: oklch(1.0 0 0);
+}
+
+p {
+  color: oklch(1.0 0 0);
+}
+
+/* Override any low-contrast text */
+.text-muted-foreground {
+  color: oklch(0.75 0.05 60) !important;
+}
+
+.text-foreground {
+  color: oklch(1.0 0 0) !important;
+}
+
+/* Ensure input text is visible */
+input, textarea, select {
+  color: oklch(1.0 0 0) !important;
+}
+
+input::placeholder, textarea::placeholder {
+  color: oklch(0.6 0.05 60) !important;
+}
+
+/* Label text visibility */
+label {
+  color: oklch(1.0 0 0) !important;
+}
+
